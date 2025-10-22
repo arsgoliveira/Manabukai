@@ -1,0 +1,124 @@
+/* ===== RESET & BASE ===== */
+*{box-sizing:border-box} html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:#1f2937;
+  background:#fff;
+}
+a{color:#0b5f8a; text-decoration:none}
+.section{padding:64px 20px; max-width:1100px; margin:0 auto}
+h1,h2,h3{letter-spacing:.2px}
+.hidden{display:none}
+
+/* ===== INTRO (SPLASH) ===== */
+.intro-screen{
+  position:relative; width:100vw; height:100vh; overflow:hidden;
+  background:#fff;
+}
+.intro-bg{
+  position:absolute; inset:0;
+  background-image:url("../img/torii-jisso.png");
+  background-size:cover; background-position:center;
+}
+.hint{
+  position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
+  background:rgba(255,255,255,.8); padding:8px 14px; border-radius:999px;
+  font-size:.95rem; box-shadow:0 4px 16px rgba(0,0,0,.12);
+}
+/* área clicável (em cima do quadro) — ajuste fino pelas variáveis */
+.click-area{
+  --top: 12.5%;    /* mova levemente se precisar */
+  --left: 50%;
+  --width: 14%;
+  --height: 28%;
+  position:absolute; top:var(--top); left:var(--left);
+  width:var(--width); height:var(--height); transform:translateX(-50%);
+  cursor:pointer; border:none; background:transparent;
+  outline-offset:4px;
+}
+.click-area:hover{ box-shadow:0 0 0 6px rgba(198,40,40,.15) inset; border-radius:8px }
+
+/* ===== HEADER / NAV ===== */
+.site-header{
+  position:sticky; top:0; z-index:20;
+  backdrop-filter:saturate(1.2) blur(8px);
+  background:rgba(255,255,255,.8); border-bottom:1px solid #eee;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:10px 18px;
+}
+.brand{font-weight:700}
+.nav{display:flex; gap:16px; align-items:center}
+.nav a{padding:8px 10px; border-radius:10px}
+.nav a:hover{background:#f2f5f8}
+.cart-btn{
+  display:flex; align-items:center; gap:8px;
+  border:none; background:#c62828; color:#fff; border-radius:10px; padding:8px 12px;
+  cursor:pointer
+}
+.cart-btn span{background:#fff; color:#c62828; border-radius:6px; padding:0 6px; font-weight:700}
+
+/* ===== HERO ===== */
+.hero{padding:48px 20px; text-align:center; background:linear-gradient(180deg,#fff,#f7f8fb)}
+.hero h1{font-size:2.2rem; margin:0 0 10px}
+.hero p{color:#4b5563}
+
+/* ===== GRID DE PRODUTOS ===== */
+.product-grid{
+  display:grid; gap:22px;
+  grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+}
+.card{
+  background:#fff; border-radius:14px; box-shadow:0 10px 24px rgba(0,0,0,.06);
+  padding:16px; display:flex; flex-direction:column; transition:transform .25s ease;
+}
+.card:hover{transform:translateY(-6px)}
+.card img{width:100%; height:170px; object-fit:cover; border-radius:10px; margin-bottom:12px}
+.card h3{font-size:1.05rem; margin:0 0 4px}
+.card .price{font-weight:700; color:#111}
+.card .stock{font-size:.9rem; color:#6b7280; margin-bottom:10px}
+.card .actions{display:flex; gap:8px; margin-top:auto}
+.btn{border:1px solid #e5e7eb; background:#fff; border-radius:10px; padding:10px 12px; cursor:pointer}
+.primary{background:#0e7ab3; color:#fff; border:none}
+.primary:hover{filter:brightness(.95)}
+.secondary{background:#e8eef3}
+
+/* ===== CARRINHO (drawer) ===== */
+.cart-drawer{
+  position:fixed; right:-420px; top:0; width:400px; height:100vh; background:#fff;
+  box-shadow:-10px 0 30px rgba(0,0,0,.12); z-index:50; display:flex; flex-direction:column;
+  transition:right .3s ease;
+}
+.cart-drawer.open{right:0}
+.cart-header{display:flex; justify-content:space-between; align-items:center; padding:14px 16px; border-bottom:1px solid #eee}
+.close{background:transparent; border:none; font-size:1.6rem; cursor:pointer}
+.cart-items{padding:14px 16px; overflow:auto; flex:1}
+.cart-item{display:grid; grid-template-columns:64px 1fr auto; gap:12px; padding:10px 0; border-bottom:1px solid #f2f2f2}
+.cart-item img{width:64px; height:64px; object-fit:cover; border-radius:8px}
+.qty{display:flex; align-items:center; gap:8px}
+.qty button{width:28px;height:28px;border:1px solid #e5e7eb;border-radius:8px;background:#fff;cursor:pointer}
+.cart-summary{padding:14px 16px; border-top:1px solid #eee}
+.cart-summary .line{display:flex; justify-content:space-between; margin:8px 0}
+.cart-summary .total{font-size:1.1rem; font-weight:700}
+
+/* ===== CHECKOUT (modal) ===== */
+.modal{position:fixed; inset:0; background:rgba(0,0,0,.45); display:none; align-items:center; justify-content:center; z-index:60}
+.modal.show{display:flex}
+.modal-content{
+  width:min(800px,92vw); background:#fff; border-radius:16px; box-shadow:0 20px 60px rgba(0,0,0,.25);
+  padding:18px 18px 24px;
+}
+.checkout-form{display:grid; gap:16px}
+fieldset{border:1px solid #e5e7eb; border-radius:12px; padding:14px}
+legend{padding:0 6px; color:#6b7280}
+label{display:block; margin:10px 0}
+input{width:100%; padding:10px 12px; border:1px solid #e5e7eb; border-radius:10px}
+.radio{display:flex; align-items:center; gap:8px}
+.row{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+.checkout-total{display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-top:1px dashed #e5e7eb}
+
+/* ===== UTILS ===== */
+@media (max-width:560px){
+  .row{grid-template-columns:1fr}
+  .cart-drawer{width:92vw}
+}
