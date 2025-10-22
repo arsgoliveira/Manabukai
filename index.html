@@ -1,145 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Portal Jissō — Loja</title>
-  <meta name="description" content="Entre pelo Torii e acesse a loja do Portal Jissō. Produtos espirituais e decorativos." />
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="preload" href="assets/img/torii-jisso.png" as="image">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manabukai — A Verdade da Vida</title>
+  <link rel="icon" href="assets/img/favicon.ico">
+
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="icon" href="assets/img/torii-jisso.png">
 </head>
-<body>
-
-  <!-- TELA INICIAL: imagem em tela cheia; clique no quadro para entrar -->
-  <section id="intro" class="intro-screen" aria-label="Tela inicial com Torii">
-    <div class="intro-bg"></div>
-
-    <!-- área clicável posicionada sobre o quadro -->
-    <button id="enterSite"
-            class="click-area"
-            aria-label="Entrar no portal"
-            title="Entrar">
-    </button>
-
-    <div class="hint">Clique no quadro para entrar</div>
-  </section>
-
-  <!-- CONTEÚDO/APLICAÇÃO -->
-  <header class="site-header hidden" id="siteHeader">
-    <div class="brand">Portal Jissō</div>
-    <nav class="nav">
-      <a href="#produtos">Produtos</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#contato">Contato</a>
-      <button id="openCart" class="cart-btn" aria-label="Abrir carrinho">🛒 <span id="cartQty">0</span></button>
-    </nav>
-  </header>
-
-  <main id="app" class="hidden">
-    <section class="hero">
-      <h1>Bem-vindo ao Portal Jissō</h1>
-      <p>Itens para harmonizar seu espaço: incensos, amuletos e arte japonesa.</p>
-    </section>
-
-    <!-- LOJA -->
-    <section id="produtos" class="store section">
-      <h2>Produtos</h2>
-      <div id="productGrid" class="product-grid"></div>
-    </section>
-
-    <!-- SOBRE -->
-    <section id="sobre" class="section">
-      <h2>Sobre</h2>
-      <p>Selecionamos produtos inspirados na cultura japonesa e no bem-estar do lar. Compra 100% segura e envio rápido.</p>
-    </section>
-
-    <!-- CONTATO -->
-    <section id="contato" class="section">
-      <h2>Contato</h2>
-      <p>WhatsApp: <a href="https://wa.me/5513999999999" target="_blank" rel="noopener">+55 (13) 99999-9999</a></p>
-      <p>E-mail: <a href="mailto:contato@portaljisso.com">contato@portaljisso.com</a></p>
-    </section>
-  </main>
-
-  <!-- CARRINHO (drawer) -->
-  <aside id="cartDrawer" class="cart-drawer" aria-hidden="true">
-    <div class="cart-header">
-      <h3>Seu carrinho</h3>
-      <button id="closeCart" class="close">&times;</button>
-    </div>
-    <div id="cartItems" class="cart-items"></div>
-
-    <div class="cart-summary">
-      <div class="line"><span>Subtotal</span><span id="sumSubtotal">R$ 0,00</span></div>
-      <div class="line"><span>Frete</span><span id="sumShipping">R$ 0,00</span></div>
-      <div class="line total"><span>Total</span><span id="sumTotal">R$ 0,00</span></div>
-      <button id="goCheckout" class="primary">Finalizar compra</button>
-    </div>
-  </aside>
-
-  <!-- CHECKOUT SIMULADO (modal) -->
-  <div id="checkoutModal" class="modal" aria-hidden="true">
-    <div class="modal-content">
-      <button id="closeCheckout" class="close">&times;</button>
-      <h3>Checkout</h3>
-
-      <form id="checkoutForm" class="checkout-form">
-        <fieldset>
-          <legend>Dados</legend>
-          <label>Nome completo
-            <input type="text" name="name" required>
-          </label>
-          <label>E-mail
-            <input type="email" name="email" required>
-          </label>
-          <label>CEP
-            <input type="text" name="zip" placeholder="00000-000" required>
-          </label>
-          <label>Endereço
-            <input type="text" name="addr" required>
-          </label>
-        </fieldset>
-
-        <fieldset>
-          <legend>Pagamento (simulado)</legend>
-          <label class="radio"><input type="radio" name="pay" value="pix" required> PIX (simulado)</label>
-          <label class="radio"><input type="radio" name="pay" value="card" required> Cartão (simulado)</label>
-
-          <div id="payCard" class="pay-card hidden">
-            <label>Número do cartão
-              <input type="text" inputmode="numeric" maxlength="19" placeholder="0000 0000 0000 0000">
-            </label>
-            <div class="row">
-              <label>Validade
-                <input type="text" placeholder="MM/AA" maxlength="5">
-              </label>
-              <label>CVC
-                <input type="text" maxlength="4">
-              </label>
-            </div>
-          </div>
-
-          <div id="payPix" class="pay-pix hidden">
-            <p>Um QR Code fictício será gerado para simulação.</p>
-          </div>
-        </fieldset>
-
-        <div class="checkout-total">
-          <span>Total</span>
-          <strong id="ckTotal">R$ 0,00</strong>
-        </div>
-
-        <button type="submit" class="primary">Confirmar pedido</button>
-      </form>
-
-      <div id="orderDone" class="order-done hidden">
-        <h4>Pedido confirmado!</h4>
-        <p id="orderMsg"></p>
-        <button id="finishBack" class="secondary">Voltar à loja</button>
-      </div>
-    </div>
+<body class="intro">
+  <div class="torii-container">
+    <img src="assets/img/torii-jisso.png" alt="Torii Jisso" id="torii" class="torii-img">
   </div>
-
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/global.js"></script>
 </body>
 </html>

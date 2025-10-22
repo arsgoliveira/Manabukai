@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loja Virtual — Manabukai</title>
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="icon" href="assets/img/torii-jisso.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="home.html">
+      <img src="assets/img/torii-jisso.png" alt="Logo Manabukai" class="logo" />
+      <span>Manabukai Brasil</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Abrir menu">☰</button>
+    <nav class="nav" id="nav">
+      <a href="home.html">Início</a>
+          <a href="averdadedavida.html">A Verdade da Vida</a>
+          <a href="kojiki.html">Kojiki</a>
+          <a href="sutrasagrada.html">Sutra Sagrada</a>
+          <a href="shinsokan.html">Shinsokan</a>
+          <a href="praticas.html">Práticas</a>
+          <a href="masaharu-taniguchi.html">Masaharu Taniguchi</a>
+          <a href="sobre.html">Sobre</a>
+          <a href="contato.html">Contato</a>
+          <a href="loja.html" class="active">Loja</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+  <h1>Loja Virtual</h1>
+  <p>Pagamentos simulados para demonstração.</p>
+  <div class="store">
+    <div class="product">
+      <img src="assets/img/torii-jisso.png" alt="A Verdade da Vida Vol. 1">
+      <h3>Livro: A Verdade da Vida Vol. 1</h3>
+      <p>R$ 45,00</p>
+      <button onclick="addToCart('A Verdade da Vida Vol. 1', 45)">Adicionar ao Carrinho</button>
+    </div>
+    <div class="product">
+      <img src="assets/img/torii-jisso.png" alt="Sutra Sagrada">
+      <h3>Sutra Sagrada — Louvor aos Apóstolos</h3>
+      <p>R$ 35,00</p>
+      <button onclick="addToCart('Sutra Sagrada', 35)">Adicionar ao Carrinho</button>
+    </div>
+    <div class="product">
+      <img src="assets/img/torii-jisso.png" alt="Kojiki">
+      <h3>Livro: Kojiki — A Origem Divina</h3>
+      <p>R$ 60,00</p>
+      <button onclick="addToCart('Kojiki', 60)">Adicionar ao Carrinho</button>
+    </div>
+  </div>
+  <section class="cart">
+    <h2>🛒 Carrinho</h2>
+    <ul id="cartItems"></ul>
+    <p id="total">Total: R$ 0,00</p>
+    <button onclick="checkout()">Finalizar Compra</button>
+  </section>
+
+  </main>
+  
+<footer>
+  <div class="footer-inner">
+    <p>Rua Conduru, 27 (próximo ao metrô Conceição) — São Paulo, SP — Brasil<br>(11) 5011-5055</p>
+    <div class="social-icons" style="margin-top:8px;">
+      <a href="https://www.instagram.com/manabukaioficial/" target="_blank" class="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/seichonoiemanabukai/?locale=pt_BR" target="_blank" class="facebook" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.youtube.com/c/manabukaibrasil" target="_blank" class="youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</footer>
+
+  <script src="assets/js/global.js"></script>
+  <script src="assets/js/loja.js"></script>
+</body>
+</html>
